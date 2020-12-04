@@ -1,12 +1,13 @@
 const {passwords} = require('./passwords')
 
 const arr = passwords.split(' ')
+console.log(arr.length)
 
 const isValid = (min, max, letter, pw) => {
     // console.log("valid", min, max, letter, pw)
     let num = pw.split(letter).length - 1
-    console.log(num)
-    console.log(min<=num && max>=num)
+    // console.log(num)
+    // console.log(min<=num && max>=num)
     return (min<=num && max>=num)
 }
 
@@ -19,12 +20,13 @@ const grabData = (one, two, three) =>{
     deets.max = max
     deets.letter = two[0]
     deets.pw = three
-    console.log("deets", deets)
+    // console.log("deets", deets)
     return deets 
 }
 
 function checkPw(passwords){
     let result = []
+    // console.log(passwords[passwords.length-1])
     for(let i = 0; i < passwords.length-3; i+=3){
         // console.log(passwords[i], passwords[i+1], passwords[i+2])
         let {min, max, letter, pw} = grabData(passwords[i], passwords[i+1], passwords[i+2])

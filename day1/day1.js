@@ -6,7 +6,7 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-const passwords = fs.readFile('./data2.txt', 'utf8', (err, data)=>{
+const passwords = fs.readFile('./data.txt', 'utf8', (err, data)=>{
     if(err) {
         console.log('error reading the file');
         console.log(err);
