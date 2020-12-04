@@ -6,13 +6,15 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-const data = fs.readFile('./data.txt', 'utf8', (err, data)=>{
+const passwords = fs.readFile('./data2.txt', 'utf8', (err, data)=>{
     if(err) {
         console.log('error reading the file');
         console.log(err);
       }
-    let numbers = data.split('\n').join(' ');
-    fs.writeFile('./numbers.txt', numbers, 'utf8', (err) => {
+      let pw = data.split('\n').join(' ');
+
+
+    fs.writeFile('./passwords.txt', pw, 'utf8', (err) => {
         if(err) {
           console.log(err);
         } else {
@@ -20,3 +22,17 @@ const data = fs.readFile('./data.txt', 'utf8', (err, data)=>{
         }
       })
 })
+// const data = fs.readFile('./data.txt', 'utf8', (err, data)=>{
+//     if(err) {
+//         console.log('error reading the file');
+//         console.log(err);
+//       }
+//     let numbers = data.split('\n').join(' ');
+//     fs.writeFile('./numbers.txt', numbers, 'utf8', (err) => {
+//         if(err) {
+//           console.log(err);
+//         } else {
+//           console.log('write successful');
+//         }
+//       })
+// })
