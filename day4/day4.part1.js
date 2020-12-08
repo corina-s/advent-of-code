@@ -5,15 +5,21 @@
 const fs = require('fs').promises;
 
 
-const readLines = async () => {
+const readEntries = async () => {
     const data = await fs.readFile('./input', {encoding: 'utf-8'});
     return data.split('\n\n');
 
 };
 
 const solve = async () => {
-    const lines = await readLines();
+    const entries = await readEntries();
+    parseEntry(entries[0])
     
+}
+
+const parseEntry = (str) => {
+    const parts = str.split(/\s/);
+    console.log(parts)
 }
 
 solve().then(console.log)
