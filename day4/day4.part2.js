@@ -29,6 +29,16 @@ const validRange = (data, key, min, max) => {
     const val = Number(data[key]);
     return min <= val && val <= max;
 }
+
+const validByr = (data)=>{
+    return validRange(data, 'byr', 1920, 2002)
+}
+const validIyr = (data)=>{
+    return validRange(data, 'iyr', 2010, 2020)
+}
+const validByr = (data)=>{
+    return validRange(data, 'eyr', 2020, 2030)
+}
 const parseEntry = (str) => {
     const parts = str.split(/\s/);
     const obj = {}
