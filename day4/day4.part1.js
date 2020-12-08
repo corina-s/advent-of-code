@@ -23,7 +23,12 @@ const solve = async () => {
         'ecl',
         'pid'
     ]
-    console.table(rows)
+    let numValid = 0
+    for (let row of rows){
+        const isValid = requiredFields.every(field => field in row)
+        if (isValid) numValid++
+    }
+    return numValid
     
 }
 
