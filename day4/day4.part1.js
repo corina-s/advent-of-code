@@ -13,13 +13,20 @@ const readEntries = async () => {
 
 const solve = async () => {
     const entries = await readEntries();
-    parseEntry(entries[0])
+    console.log(parseEntry(entries[0]))
     
 }
 
 const parseEntry = (str) => {
     const parts = str.split(/\s/);
-    console.log(parts)
+    const obj = {}
+
+    for(let part of parts){
+        const [k, v] = part.split(':');
+        obj[k] = v;
+
+    }
+    return obj
 }
 
 solve().then(console.log)
