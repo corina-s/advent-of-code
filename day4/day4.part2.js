@@ -39,6 +39,21 @@ const validIyr = (data)=>{
 const validByr = (data)=>{
     return validRange(data, 'eyr', 2020, 2030)
 }
+
+const validHgt = (data)=> {
+    if (data.hgt=== undefined) return false;
+    const unit = data.hgt.slice(-2);
+    const val = Number(data.hgt.slice(0,-2));
+    
+
+    if (unit === 'in'){
+        return 59 <= val && val <= 76;
+    }else if(unit === 'cm'){
+        return 150 <= val && val <= 193;
+    }else{
+        return false
+    }
+}
 const parseEntry = (str) => {
     const parts = str.split(/\s/);
     const obj = {}
