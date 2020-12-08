@@ -13,7 +13,17 @@ const readEntries = async () => {
 
 const solve = async () => {
     const entries = await readEntries();
-    console.log(parseEntry(entries[0]))
+    const rows = entries.map(parseEntry)
+    const requiredFields = [
+        'byr',
+        'iyr',
+        'eyr',
+        'hgt',
+        'hcl',
+        'ecl',
+        'pid'
+    ]
+    console.table(rows)
     
 }
 
