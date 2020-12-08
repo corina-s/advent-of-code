@@ -24,7 +24,11 @@ const solve = async () => {
     
     
 }
-
+const validRange = (data, key, min, max) => {
+    if (data[key]=== undefined) return false;
+    const val = Number(data[key]);
+    return min <= val && val <= max;
+}
 const parseEntry = (str) => {
     const parts = str.split(/\s/);
     const obj = {}
