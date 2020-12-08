@@ -9,6 +9,7 @@ const readLines = async () => {
 };
 
 const solve = async () => {
+
     const lines = await readLines();
     const slopes = [
         [1,1],
