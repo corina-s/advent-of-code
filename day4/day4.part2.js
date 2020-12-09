@@ -33,6 +33,12 @@ const validHcl = (data)=>{
     if (data.hcl=== undefined) return false;
     return data.hcl.match(/^#([0-9a-f]{6})$/) !== null
 }
+const validEcl = (data)=>{
+    if (data.hcl=== undefined) return false;
+    const colors = new Set(["amb", "blu", "brn", "gry", "grn", "hzl", "oth"])
+
+    return colors.has(data.ecl)
+}
 
 const validByr = (data)=>{
     return validRange(data, 'byr', 1920, 2002)
