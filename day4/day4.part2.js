@@ -21,8 +21,21 @@ const readEntries = async () => {
 const solve = async () => {
     const entries = await readEntries();
     const rows = entries.map(parseEntry)
-    
-    
+    const validators = [
+        validByr,
+        validEcl,
+        validHcl,
+        validHgt,
+        validIyr,
+        validPid,
+        validEyr
+    ];
+    let numValid = 0;
+    for (let row of rows){
+        const isValid = validators.every(validator => validator(row));
+        if (isValid) {numValid+=1}
+    }
+    return numValid
 }
 const validRange = (data, key, min, max) => {
     if (data[key]=== undefined) return false;
@@ -31,11 +44,11 @@ const validRange = (data, key, min, max) => {
 }
 const validPid = (data)=>{
     if (data.pid=== undefined) return false;
-    return data.hcl.match(/^#([0-9a-f]{6})$/) !== null
+    return data.pid.match(/^#([0-9a-f]{6})$/) !== null
 }
 const validHcl = (data)=>{
     if (data.hcl=== undefined) return false;
-    return data.pid.match(/^([0-9]{9})$/) !== null
+    return data.hcl.match(/^([0-9]{9})$/) !== null
 }
 const validEcl = (data)=>{
     if (data.hcl=== undefined) return false;
@@ -50,7 +63,7 @@ const validByr = (data)=>{
 const validIyr = (data)=>{
     return validRange(data, 'iyr', 2010, 2020)
 }
-const validByr = (data)=>{
+const validEyr = (data)=>{
     return validRange(data, 'eyr', 2020, 2030)
 }
 
