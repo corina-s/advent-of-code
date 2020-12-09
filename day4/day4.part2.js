@@ -29,6 +29,10 @@ const validRange = (data, key, min, max) => {
     const val = Number(data[key]);
     return min <= val && val <= max;
 }
+const validHcl = (data)=>{
+    if (data.hcl=== undefined) return false;
+    return data.hcl.match(/^#([0-9a-f]{6})$/) !== null
+}
 
 const validByr = (data)=>{
     return validRange(data, 'byr', 1920, 2002)
