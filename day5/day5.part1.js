@@ -10,7 +10,14 @@ const readLines = async () => {
 
 const solve = async () => {
     const lines = await readLines();
+    const seatIds = lines.map(line => {
+        const rowStr = line.slice(0,7);
+        const colStr = line.slice(7);
+        const rowNum = binaryFind(rowStr, 'F', 'B', 128)
+        const colNum = binaryFind(colStr, 'L', 'R', 8);
+        return (8*rowNum)+colNum;
     
+    })
 }
 
 const binaryFind = (str, bottomSym, topSym, n) => {
@@ -30,7 +37,7 @@ const binaryFind = (str, bottomSym, topSym, n) => {
     return lo;
 }
 
-console.log(binaryFind('FBFBBFF', 'F', 'B', 128)) //44
-console.log(binaryFind('RLR', 'L', 'R', 8)) //5
-// solve().then(console.log)
+// console.log(binaryFind('FBFBBFF', 'F', 'B', 128)) //44
+// console.log(binaryFind('RLR', 'L', 'R', 8)) //5
+solve().then(console.log)
 
