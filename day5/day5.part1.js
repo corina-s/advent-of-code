@@ -13,15 +13,15 @@ const solve = async () => {
     
 }
 
-const binaryFind = (str) => {
+const binaryFind = (str, bottomSym, topSym, n) => {
     let lo = 0;
-    let hi = 128;
+    let hi = n;
     for (let char of str){
         const mid = Math.floor((lo + hi)/2);
-        if (char === 'F'){
+        if (char === bottomSym){
             // take the lower half
             hi = mid;
-        }else if (char === 'B'){
+        }else if (char === topSym){
             // take the upper half
             lo = mid;
         }
@@ -30,6 +30,7 @@ const binaryFind = (str) => {
     return lo;
 }
 
-console.log(binaryFind('FBFBBFF')) //44
+console.log(binaryFind('FBFBBFF', 'F', 'B', 128)) //44
+console.log(binaryFind('RLR', 'L', 'R', 8)) //5
 // solve().then(console.log)
 
