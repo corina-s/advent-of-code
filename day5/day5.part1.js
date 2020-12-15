@@ -18,6 +18,8 @@ const solve = async () => {
         return (8*rowNum)+colNum;
     
     })
+
+    return Math.max(...seatIds)
 }
 
 const binaryFind = (str, bottomSym, topSym, n) => {
